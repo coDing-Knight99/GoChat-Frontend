@@ -8,7 +8,7 @@ const primary = "inline-flex items-center justify-center gap-2 rounded-xl bg-eme
 
 export default function LandingPage() {
   return <main className="min-h-screen overflow-hidden bg-slate-950 text-slate-100">
-    <nav className="mx-auto flex h-22 max-w-6xl items-center justify-between px-5 sm:px-7">
+    <nav className="mx-auto flex h-35 max-w-6xl items-center justify-between px-2 sm:px-5">
       <Brand />
       <div className="flex items-center gap-3 sm:gap-7 text-sm font-semibold">
         <a className="hidden text-slate-400 transition hover:text-white sm:block" href="#features">Features</a>
@@ -17,7 +17,7 @@ export default function LandingPage() {
         <Link className={`${primary} px-3 py-2.5 text-sm sm:px-4`} to="/signup">Get started <span className="hidden text-lg sm:inline">→</span></Link>
       </div>
     </nav>
-    <section className="relative min-h-155 px-5 pt-16 text-center sm:pt-21 [background:radial-gradient(circle_at_50%_58%,#14532d55_0,transparent_42%)]">
+    <section className="relative min-h-150 px-5 pt-8 text-center sm:pt-8 [background:radial-gradient(circle_at_50%_58%,#14532d55_0,transparent_42%)]">
       <div className="flex items-center justify-center gap-2 text-[11px] font-bold tracking-[0.14em] text-emerald-300"><span className="size-1.5 rounded-full bg-amber-300" /> A MORE THOUGHTFUL WAY TO CHAT</div>
       <h1 className="mt-5 text-5xl font-semibold leading-[.98] tracking-[-0.06em] sm:text-7xl">Conversations that<br /><em className="font-display font-semibold text-emerald-300">feel closer.</em></h1>
       <p className="mx-auto mt-5 max-w-md text-base leading-7 text-slate-400">goChat makes it simple to connect with the people who matter — wherever life takes you.</p>

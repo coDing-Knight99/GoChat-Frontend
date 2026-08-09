@@ -1,7 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import AuthShell from "../components/AuthShell";
+import Loader from "../components/Loader";
 
 import axios from "axios";
 const Base_URL=import.meta.env.VITE_API_BASE_URL
@@ -38,8 +39,19 @@ export default function LoginPage() {
     }
   };
 
+  useEffect(() => {
+    const checkLogin = async()=>{
+      const res=await axios.get(`${Base_URL}/LoginStatus`)
+    if(res?.data?.isLogin){
+      navigate("/chat")
+    }
+  }
+  checkLogin()
+  },[navigate])
+  
   return (
     <AuthShell>
+      {isSubmitting && <Loader label="Signing you in" />}
       <div className="mx-auto mt-18 max-w-sm">
         <p className="text-[10px] font-bold tracking-[0.14em] text-emerald-300">
           WELCOME BACK

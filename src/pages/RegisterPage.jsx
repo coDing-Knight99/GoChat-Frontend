@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import AuthShell from "../components/AuthShell";
+import Loader from "../components/Loader";
 import axios from "axios";
 const Base_URL = import.meta.env.VITE_API_BASE_URL
 const usernamePattern = /^[a-z0-9_]{3,20}$/;
@@ -49,6 +50,16 @@ export default function RegisterPage() {
     };
   }, [username]);
 
+  useEffect(() => {
+    const checkLogin = async()=>{
+      const res=await axios.get(`${Base_URL}/LoginStatus`)
+    if(res?.data?.isLogin){
+      navigate("/chat")
+    }
+  }
+  checkLogin()
+  },[navigate])
+  
   const availabilityStatus = !username
     ? "idle"
     : !usernamePattern.test(username)
@@ -78,12 +89,12 @@ export default function RegisterPage() {
       if (!availability.available) {
         throw new Error("That username is no longer available.");
       }
-      const res = await axios.post(`${Base_URL}/register`, {
+      await axios.post(`${Base_URL}/register`, {
         username: username,
         email: email,
         password: password,
       });
-      const response = await axios.post(`${Base_URL}/login`, {
+      await axios.post(`${Base_URL}/login`, {
         username: username,
         password: password,
       });
@@ -104,6 +115,7 @@ export default function RegisterPage() {
         : "text-rose-300";
   return (
     <AuthShell>
+      {isSubmitting && <Loader label="Creating your space" />}
       <div className="mx-auto mt-18 max-w-sm">
         <p className="text-[10px] font-bold tracking-[0.14em] text-emerald-300">
           START YOUR JOURNEY
