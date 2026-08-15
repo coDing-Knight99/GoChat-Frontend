@@ -116,7 +116,7 @@ export default function RegisterPage() {
   return (
     <AuthShell>
       {isSubmitting && <Loader label="Creating your space" />}
-      <div className="mx-auto mt-18 max-w-sm">
+      <div className="mx-[25%] mt-18 max-w-sm">
         <p className="text-[10px] font-bold tracking-[0.14em] text-emerald-300">
           START YOUR JOURNEY
         </p>

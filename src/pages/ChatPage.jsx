@@ -4,7 +4,7 @@ import AddContactModal from "../components/AddContactModal";
 import Icon from "../components/Icon";
 import Brand from "../components/Brand";
 import axios from "axios";
-import { BiExit, BiLogOut } from "react-icons/bi";
+import { BiExit, BiLogOut, BiReply, BiSend } from "react-icons/bi";
 const Base_URL = import.meta.env.VITE_API_BASE_URL;
 const WS_URL = Base_URL?.replace(/^http/, "ws") || "";
 const AVATAR_COLORS = ["bg-sky-200", "bg-violet-200", "bg-amber-200", "bg-rose-200"];
@@ -488,7 +488,7 @@ export default function ChatPage() {
                 type="submit"
                 className="grid size-9 place-items-center rounded-lg bg-emerald-400 text-slate-950 hover:bg-emerald-300"
               >
-                <Icon name="send" size={19} />
+                <BiSend />
               </button>
             </form>
           </>
